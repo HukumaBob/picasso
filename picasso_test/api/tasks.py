@@ -10,7 +10,6 @@ def process_file(file_id):
 
     try:
         file = File.objects.get(id=file_id)
-
         file.processed = True
         file.save()
 
