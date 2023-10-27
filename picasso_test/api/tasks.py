@@ -6,7 +6,7 @@ import logging
 def process_file(file_id):
     from .models import File
     logger = logging.getLogger(__name__)
-    logger.info(f"Задача Celery запущена для файла с ID {file_id}")
+    logger.info(f"Celery task started for file with ID{file_id}")
 
     try:
         file = File.objects.get(id=file_id)
@@ -14,6 +14,6 @@ def process_file(file_id):
         file.save()
 
     except File.DoesNotExist as e:
-        logger.error(f"Произошла ошибка: {e}")
+        logger.error(f"An error has occurred:{e}")
 
 
